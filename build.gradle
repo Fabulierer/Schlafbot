@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'de.fabiusd'
+version '1.0-SNAPSHOT'
+
+mainClassName = 'de.fabiusd.schlafbot.Bot'
+
+def jdaVersion = 'JDA_VERSION_HERE'
+
+sourceCompatibility = targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation("net.dv8tion:JDA:4.2.0_225")
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+test {
+    useJUnitPlatform()
+}
